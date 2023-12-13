@@ -6,9 +6,15 @@ const selectRadio = document.getElementsByName('radio-value');
 const selectYes = document.getElementById('radio-yes');
 const selectNo = document.getElementById('radio-no');
 const selectErr = document.getElementById('error-msg');
+const selectBtn = document.getElementById('submit');
+const selectTr = document.getElementById('tr-btn');
+const createRow = document.createElement('tr');
 let selectTable = document.querySelector('table');
 const myLibrary = [];
 
+
+let str;
+let node;
 
 function Book(counter, title, author, numOfPages, isRead) {
   this.counter = counter
@@ -44,11 +50,11 @@ function addBookToLibrary() {
       const book = new Book(counter, selectTitle.value, selectAuthor.value, selectNumOfPages.value, selectValue);
       myLibrary.push(book);
       selectTable.innerHTML += `<tr id="${counter}"><td>${book.title}</td>
-                                    <td>${book.author}</td><td>${book.numOfPages}</td>
-                                    <td>${book.isRead}</td>
-                                    <td id="delete-row" class="delete-row">Delete</td></tr>`;
+                                                    <td>${book.author}</td><td>${book.numOfPages}</td>
+                                                    <td>${book.isRead}</td>
+                                                    <td id="delete-row" class="delete-row">Delete</td></tr>`;
       counter++;
-      removeBookFromLibrary(book);
+      removeBookFromLibrary();
     }
   })
 }
@@ -63,7 +69,8 @@ function removeInstanceOfBook(myLibrary, btn) {
 }
 
 function removeBookFromLibrary() {
-  document.querySelectorAll('.delete-row').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.delete-row').forEach(btn => btn.addEventListener('click', (e) => {
+    e.preventDefault()
     removeInstanceOfBook(myLibrary, btn);
     btn.parentElement.remove();
   })

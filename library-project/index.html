@@ -8,35 +8,37 @@
 </head>
 <body>
     <div id="main">
-        <form action="" method="post" name="lib-form" id="lib-form">
-            <div class="flex-item">
-                <label for="title">Title</label>
-                <input type="text" id="title" maxlength="32">
-            </div>
-            <div class="flex-item">
-                <label for="author">Author</label>
-                <input type="text" id="author" maxlength="32">
-            </div>
-            <div class="flex-item">
-                <label for="num-of-pages">Pages</label>
-                <input type="text" id="num-of-pages" maxlength="6">
-            </div>
-            <div class="flex-item" id="flex-item-radio">
-                    <label for="radio-yes">Yes</label>
-                    <input type="radio" name="radio-value" value="yes" id="radio-yes">
-                    <label for="radio-no">No</label>
-                    <input type="radio" name="radio-value" value="no" id="radio-no">
-            </div>  
-            
-            <div id="error-msg"></div>
-        </form>
-        
+        <div id="form-container">
+            <form action="" method="post" name="lib-form" id="lib-form">
+                <div class="flex-item">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" maxlength="32">
+                </div>
+                <div class="flex-item">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" maxlength="32">
+                </div>
+                <div class="flex-item">
+                    <label for="num-of-pages">Pages</label>
+                    <input type="text" id="num-of-pages" maxlength="6">
+                </div>
+                <div class="flex-item" id="flex-item-radio">
+                        <label for="radio-yes">Yes</label>
+                        <input type="radio" name="radio-value" value="yes" id="radio-yes">
+                        <label for="radio-no">No</label>
+                        <input type="radio" name="radio-value" value="no" id="radio-no">
+                </div> 
+                <button type="submit" form="lib-form" id="submit">Submit</button>
+                <div id="error-msg"></div>
+            </form>
+        </div> 
         <div id="library-container">
             <p>My Library</p>
-            <table>              
-                <tr><th id="th-len-32">Title</th><th id="th-len-32">Author</th><th id="th-len-6">Pages</th><th id="th-status">Status</th><th id="th-delete">Delete</th></tr>     
+            <table id="table">              
+                <tr id="header-row"><th id="th-len-32">Title</th><th id="th-len-32">Author</th><th id="th-len-6">Pages</th><th id="th-status">Status</th><th id="th-delete">Delete</th></tr>
             </table>
-            <button type="submit" form="lib-form" id="submit">Add Book</button>
+            
+            
         </div> 
     </div>
     <script src="index.js" defer></script>

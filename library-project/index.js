@@ -5,11 +5,13 @@ const selectNumOfPages = document.getElementById('num-of-pages');
 const selectRadio = document.getElementsByName('radio-value');
 const selectYes = document.getElementById('radio-yes');
 const selectNo = document.getElementById('radio-no');
-const selectErr = document.getElementById('error-msg');
 const selectBtn = document.getElementById('submit');
 const selectTr = document.getElementById('tr-btn');
 const createRow = document.createElement('tr');
 let selectTable = document.querySelector('table');
+const selectTitleError = document.getElementById('title-err');
+const selectAuthorError = document.getElementById('author-err')
+const selectNumError = document.getElementById('num-err')
 const myLibrary = [];
 
 
@@ -37,15 +39,22 @@ let counter = 0;
 function addBookToLibrary() {
   selectForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    if(myLibrary.some(book => book.title === selectTitle.value)) {
-      selectErr.innerText = 'Duplicate title.';
+    if(([selectTitle.value, selectAuthor.value, selectNumOfPages.value].some(el => el === '')) || [selectYes, selectNo].every(el => el.checked === false)) {
+      selectTitle.value === '' ? selectTitleError.innerText = 'Empty title field!' : selectTitleError.innerText = '';
+
+      selectAuthor.value === '' ? selectAuthorError.innerText = 'Empty author field!' : selectAuthorError.innerText = '';
+
+      selectNumOfPages.value === '' ? selectNumError.innerText = 'Empty pages field!' : selectNumError.innerText = '';
+
     }
 
-    else if(([selectTitle.value, selectAuthor.value, selectNumOfPages.value].some(el => el === '')) || [selectYes, selectNo].every(el => el.checked === false)) {
-      selectErr.innerText = 'Fill all the forms.';  
+    else if(myLibrary.some(book => book.title === selectTitle.value)){
+      selectTitleError.innerText = 'Duplicate title!'
     }
     else {
-      selectErr.innerText = '';
+      selectTitleError.innerText = '';
+      selectAuthorError.innerText = '';
+      selectNumError.innerText = '';
       selectYes.checked === true ? selectValue = selectYes.value : selectValue = selectNo.value;
       const book = new Book(counter, selectTitle.value, selectAuthor.value, selectNumOfPages.value, selectValue);
       myLibrary.push(book);

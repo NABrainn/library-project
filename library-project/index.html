@@ -11,16 +11,16 @@
         <div id="form-container">
             <form action="" method="post" name="lib-form" id="lib-form">
                 <div class="flex-item">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" maxlength="32">
+                    <label for="title">Title</label>    
+                    <input type="text" id="title" maxlength="32"><span id="title-err" class="error"></span>
                 </div>
                 <div class="flex-item">
                     <label for="author">Author</label>
-                    <input type="text" id="author" maxlength="32">
+                    <input type="text" id="author" maxlength="32"><span id="author-err" class="error"></span>
                 </div>
                 <div class="flex-item">
                     <label for="num-of-pages">Pages</label>
-                    <input type="text" id="num-of-pages" maxlength="6">
+                    <input type="text" id="num-of-pages" maxlength="6"><span id="num-err" class="error"></span>
                 </div>
                 <div class="flex-item" id="flex-item-radio">
                         <label for="radio-yes">Yes</label>
@@ -28,8 +28,8 @@
                         <label for="radio-no">No</label>
                         <input type="radio" name="radio-value" value="no" id="radio-no">
                 </div> 
+                <span></span>
                 <button type="submit" form="lib-form" id="submit">Submit</button>
-                <div id="error-msg"></div>
             </form>
         </div> 
         <div id="library-container">

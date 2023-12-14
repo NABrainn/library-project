@@ -62,6 +62,10 @@ body {
     font-size: clamp(5px, 2vw, 14px);
 }
 
+p {
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
 
 #main {
     display: grid;
@@ -74,10 +78,18 @@ input, th, td, input:checked {
     background-color: #fafafa;
 }
 
+input:invalid {
+    border: 1px solid red;
+}
+
+.flex-item {
+    height: 50px;
+}
+
 form {
     display: flex;
     flex-direction: column;
-    gap: 2vh;
+    gap: 3vh;
     align-items: center;
     width: 50%;
     margin-right: auto;
@@ -95,6 +107,7 @@ form {
 input {
     margin-top: 0.5vh;
     border: 1px solid #334155;
+    margin-bottom: 0.5vh;
 }
 
 input[type="radio"] {
@@ -116,11 +129,11 @@ input[type="radio"] {
 
 }
 
-#error-msg {
-    color: red;
+.error {
+    color: #b91c1c;
     font-size: 0.9em;
     width: 10vw;
-    text-align: center;
+    font-weight: 600;
 }
 
 table {
